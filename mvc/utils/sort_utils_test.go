@@ -77,6 +77,7 @@ func BenchmarkBubbleSort10000(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		BubbleSort(els)
 	}
+	// BenchmarkBubbleSort10000-4   	  141214	      8506 ns/op	       0 B/op	       0 allocs/op
 }
 
 func BenchmarkBubbleSortBuildIn10000(b *testing.B) {
