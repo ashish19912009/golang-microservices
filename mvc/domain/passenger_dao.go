@@ -17,15 +17,18 @@ var (
 			TicketNo: "ABC121DC",
 		},
 	}
+	PassengerDao passengerDao
 )
 
+type passengerDao struct{}
+
 //GetPassenger Package
-func GetPassenger(passID int64) (*Passenger, *utils.ApplicationError) {
+func (u *passengerDao) GetPassenger(passID int64) (*Passenger, *utils.ApplicationError) {
 	if pass := passengers[passID]; pass != nil {
 		return pass, nil
 	}
 	return nil, &utils.ApplicationError{
-		Message:    fmt.Sprintf("Passenger was not found", passID),
+		Message:    fmt.Sprintln("Passenger was not found", passID),
 		StatusCode: http.StatusNotFound,
 		Code:       "passenger_not_found",
 	}
