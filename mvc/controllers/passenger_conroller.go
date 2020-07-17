@@ -25,7 +25,7 @@ func GetPassenger(resp http.ResponseWriter, req *http.Request) {
 		resp.Write(jsonValue)
 		return
 	}
-	passenger, apiErr := services.GetPassenger(pass)
+	passenger, apiErr := services.PassengerService.GetPassenger(pass)
 	if apiErr != nil {
 		jsonValue, _ := json.Marshal(apiErr)
 		resp.WriteHeader(apiErr.StatusCode)
